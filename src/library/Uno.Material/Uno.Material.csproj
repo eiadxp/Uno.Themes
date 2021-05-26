@@ -102,6 +102,16 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	  <None Remove="Styles\Controls\CalendarDatePicker.xaml" />
+	  <None Remove="Styles\Controls\CalendarView.xaml" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Styles\Controls\CalendarDatePicker.xaml" />
+	  <UpToDateCheckInput Remove="Styles\Controls\CalendarView.xaml" />
+	</ItemGroup>
+	
+	<ItemGroup>
 		<EmbeddedResource Include="LinkerConfig.xml">
 			<LogicalName>$(AssemblyName).xml</LogicalName>
 		</EmbeddedResource>

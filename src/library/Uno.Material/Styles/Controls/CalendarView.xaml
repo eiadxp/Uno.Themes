@@ -1,0 +1,65 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:converters="using:Uno.Material.Converters"
+					xmlns:controls="using:Uno.Material.Controls"
+					xmlns:toolkit="using:Uno.UI.Toolkit">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="../Application/Colors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<ResourceDictionary.ThemeDictionaries>
+		<ResourceDictionary x:Key="Default">
+			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
+							 Color="{StaticResource MaterialPrimaryColor}" />
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="Dark">
+			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
+							 Color="{StaticResource MaterialPrimaryColor}" />
+		</ResourceDictionary>
+		<ResourceDictionary x:Key="Light">
+			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
+							 Color="{StaticResource MaterialPrimaryColor}" />
+		</ResourceDictionary>
+	</ResourceDictionary.ThemeDictionaries>
+
+	<Style x:Key="MaterialCalendarViewStyle"
+		   TargetType="CalendarView">
+		<Setter Property="FocusBorderBrush"
+				Value="{StaticResource MaterialPrimaryFocusedBrush}" />
+		<Setter Property="SelectedHoverBorderBrush"
+				Value="{StaticResource MaterialPrimaryBrush}" />
+		<Setter Property="SelectedPressedBorderBrush"
+				Value="{StaticResource MaterialPrimaryBrush}" />
+		<Setter Property="SelectedBorderBrush"
+				Value="{StaticResource MaterialPrimaryBrush}" />
+		<Setter Property="HoverBorderBrush"
+				Value="{ThemeResource CalendarViewHoverBorderBrush}" />
+		<Setter Property="PressedBorderBrush"
+				Value="{StaticResource MaterialPrimaryBrush}" />
+		<Setter Property="CalendarItemBorderBrush"
+				Value="{ThemeResource CalendarViewCalendarItemRevealBorderBrush}" />
+		<Setter Property="TodayForeground"
+				Value="{ThemeResource CalendarViewTodayForeground}" />
+		<Setter Property="BlackoutForeground"
+				Value="{ThemeResource CalendarViewBlackoutForeground}" />
+		<Setter Property="SelectedForeground"
+				Value="{ThemeResource CalendarViewSelectedForeground}" />
+		<Setter Property="PressedForeground"
+				Value="{ThemeResource CalendarViewPressedForeground}" />
+		<Setter Property="OutOfScopeForeground"
+				Value="{ThemeResource CalendarViewOutOfScopeForeground}" />
+		<Setter Property="CalendarItemForeground"
+				Value="{ThemeResource CalendarViewCalendarItemForeground}" />
+		<Setter Property="OutOfScopeBackground"
+				Value="{ThemeResource CalendarViewOutOfScopeBackground}" />
+		<Setter Property="CalendarItemBackground"
+				Value="{ThemeResource CalendarViewCalendarItemRevealBackground}" />
+		<Setter Property="Foreground"
+				Value="{StaticResource CalendarViewForeground}" />
+		<Setter Property="Background"
+				Value="{StaticResource MaterialPrimaryBrush}" />
+		<Setter Property="BorderBrush"
+				Value="{ThemeResource CalendarViewBorderBrush}" />
+	</Style>
+</ResourceDictionary>
