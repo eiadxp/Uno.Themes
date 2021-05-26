@@ -33,33 +33,9 @@
 				Value="{StaticResource MaterialPrimaryBrush}" />
 		<Setter Property="SelectedBorderBrush"
 				Value="{StaticResource MaterialPrimaryBrush}" />
-		<Setter Property="HoverBorderBrush"
-				Value="{ThemeResource CalendarViewHoverBorderBrush}" />
 		<Setter Property="PressedBorderBrush"
 				Value="{StaticResource MaterialPrimaryBrush}" />
-		<Setter Property="CalendarItemBorderBrush"
-				Value="{ThemeResource CalendarViewCalendarItemRevealBorderBrush}" />
-		<Setter Property="TodayForeground"
-				Value="{ThemeResource CalendarViewTodayForeground}" />
-		<Setter Property="BlackoutForeground"
-				Value="{ThemeResource CalendarViewBlackoutForeground}" />
-		<Setter Property="SelectedForeground"
-				Value="{ThemeResource CalendarViewSelectedForeground}" />
-		<Setter Property="PressedForeground"
-				Value="{ThemeResource CalendarViewPressedForeground}" />
-		<Setter Property="OutOfScopeForeground"
-				Value="{ThemeResource CalendarViewOutOfScopeForeground}" />
-		<Setter Property="CalendarItemForeground"
-				Value="{ThemeResource CalendarViewCalendarItemForeground}" />
-		<Setter Property="OutOfScopeBackground"
-				Value="{ThemeResource CalendarViewOutOfScopeBackground}" />
-		<Setter Property="CalendarItemBackground"
-				Value="{ThemeResource CalendarViewCalendarItemRevealBackground}" />
-		<Setter Property="Foreground"
-				Value="{StaticResource CalendarViewForeground}" />
 		<Setter Property="Background"
 				Value="{StaticResource MaterialPrimaryBrush}" />
-		<Setter Property="BorderBrush"
-				Value="{ThemeResource CalendarViewBorderBrush}" />
 	</Style>
 </ResourceDictionary>
