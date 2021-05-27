@@ -23,6 +23,15 @@
 					</StackPanel>
 				</DataTemplate>
 			</sample:SamplePageLayout.MaterialTemplate>
+			<sample:SamplePageLayout.CupertinoTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<smtx:XamlDisplay UniqueKey="Cupertino_CalendarView">
+							<CalendarView SelectionMode="Multiple"  Style="{StaticResource CupertinoCalendarViewStyle}" />
+						</smtx:XamlDisplay>
+					</StackPanel>
+				</DataTemplate>
+			</sample:SamplePageLayout.CupertinoTemplate>
 		</sample:SamplePageLayout>
 	</Grid>
 </Page>
