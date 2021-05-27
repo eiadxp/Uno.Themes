@@ -25,13 +25,14 @@
 				Value="Left" />
 		<Setter Property="VerticalAlignment"
 				Value="Center" />
+		<Setter Property="Height"
+				Value="53" />
 		<Setter Property="UseSystemFocusVisuals"
 				Value="{ThemeResource IsApplicationFocusVisualKindReveal}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="CalendarDatePicker">
-					<Grid x:Name="Root"
-						  Height="53">
+					<Grid x:Name="Root" Height="{TemplateBinding Height}">
 
 						<VisualStateManager.VisualStateGroups>
 							<VisualStateGroup x:Name="CommonStates">
