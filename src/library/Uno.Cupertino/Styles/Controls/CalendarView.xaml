@@ -16,9 +16,6 @@
 	<StaticResource x:Key="CupertinoCalendarViewAccentBrush"
 					ResourceKey="CupertinoBlueBrush" />
 
-	<x:Double x:Key="CupertinoNavigationButtonHoverOpacity">0.74</x:Double>
-	<x:Double x:Key="CupertinoNavigationButtonPressedOpacity">0.38</x:Double>
-	
 	<Style x:Key="CupertinoCalendarViewStyle"
 		   TargetType="CalendarView">
 		<Setter Property="FocusBorderBrush"
@@ -79,6 +76,8 @@
 				Value="Stretch" />
 		<Setter Property="IsTabStop"
 				Value="False" />
+		<Setter Property="CornerRadius"
+				Value="5" />
 		<Setter Property="UseSystemFocusVisuals"
 				Value="{StaticResource UseSystemFocusVisuals}" />
 		<Setter Property="Template">
@@ -134,7 +133,7 @@
 																<Setter Target="Text.BorderBrush"
 																		Value="{ThemeResource CalendarViewNavigationButtonBorderBrushPointerOver}" />
 																<Setter Target="Text.Opacity"
-																		Value="{StaticResource CupertinoNavigationButtonHoverOpacity}" />
+																		Value="{StaticResource CupertinoHoverOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 
@@ -190,19 +189,19 @@
 															<VisualState.Setters>
 																<Setter Target="Text.BorderBrush"
 																		Value="{ThemeResource CalendarViewNavigationButtonBorderBrushPointerOver}" />
-																<Setter Target="Text.Foreground"
-																		Value="{StaticResource CalendarViewNavigationButtonForegroundPointerOver}" />
+																<Setter Target="Text.Opacity"
+																		Value="{StaticResource CupertinoHoverOpacity}" />
 																<Setter Target="HeaderGlyph.Opacity"
-																		Value="{StaticResource CupertinoNavigationButtonHoverOpacity}" />
+																		Value="{StaticResource CupertinoHoverOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 
 														<VisualState x:Name="Pressed">
 															<VisualState.Setters>
-																<Setter Target="Text.Foreground"
-																		Value="{StaticResource CalendarViewNavigationButtonForegroundPressed}" />
+																<Setter Target="Text.Opacity"
+																		Value="{StaticResource CupertinoPressedOpacity}" />
 																<Setter Target="HeaderGlyph.Opacity"
-																		Value="{StaticResource CupertinoNavigationButtonPressedOpacity}" />
+																		Value="{StaticResource CupertinoPressedOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 														<VisualState x:Name="Disabled">

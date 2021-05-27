@@ -29,6 +29,9 @@
 						<smtx:XamlDisplay UniqueKey="Cupertino_CalendarView">
 							<CalendarView SelectionMode="Multiple"  Style="{StaticResource CupertinoCalendarViewStyle}" />
 						</smtx:XamlDisplay>
+						<smtx:XamlDisplay UniqueKey="Cupertino_CalendarDatePicker">
+							<CalendarDatePicker Header="Select" Style="{StaticResource CupertinoCalendarDatePickerStyle}" />
+						</smtx:XamlDisplay>
 					</StackPanel>
 				</DataTemplate>
 			</sample:SamplePageLayout.CupertinoTemplate>
