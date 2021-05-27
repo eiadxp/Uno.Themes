@@ -7,6 +7,7 @@
 					xmlns:toolkit="using:Uno.UI.Toolkit"
 					xmlns:wasm="http://uno.ui/wasm"
 					mc:Ignorable="ios android wasm not_win">
+
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="../Application/Converters.xaml" />
 		<ResourceDictionary Source="../Application/Colors.xaml" />
@@ -15,23 +16,9 @@
 	<StaticResource x:Key="CupertinoCalendarViewAccentBrush"
 					ResourceKey="CupertinoBlueBrush" />
 
-	<ResourceDictionary.ThemeDictionaries>
-		<ResourceDictionary x:Key="Default">
-			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
-							 Color="{StaticResource CupertinoCalendarViewAccentBrush}" />
-		</ResourceDictionary>
-		<ResourceDictionary x:Key="Dark">
-			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
-							 Color="{StaticResource CupertinoCalendarViewAccentBrush}" />
-		</ResourceDictionary>
-		<ResourceDictionary x:Key="Light">
-			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
-							 Color="{StaticResource CupertinoCalendarViewAccentBrush}" />
-		</ResourceDictionary>
-	</ResourceDictionary.ThemeDictionaries>
+	<x:Double x:Key="CupertinoNavigationButtonHoverOpacity">0.74</x:Double>
+	<x:Double x:Key="CupertinoNavigationButtonPressedOpacity">0.38</x:Double>
 	
-	
-
 	<Style x:Key="CupertinoCalendarViewStyle"
 		   TargetType="CalendarView">
 		<Setter Property="FocusBorderBrush"
@@ -119,7 +106,7 @@
 								<Setter Property="UseSystemFocusVisuals"
 										Value="{StaticResource UseSystemFocusVisuals}" />
 								<Setter Property="FontSize"
-										Value="20" />
+										Value="12" />
 								<Setter Property="Background"
 										Value="{ThemeResource CalendarViewNavigationButtonBackground}" />
 								<Setter Property="BackgroundSizing"
@@ -146,15 +133,15 @@
 															<VisualState.Setters>
 																<Setter Target="Text.BorderBrush"
 																		Value="{ThemeResource CalendarViewNavigationButtonBorderBrushPointerOver}" />
-																<Setter Target="Text.Foreground"
-																		Value="{ThemeResource CalendarViewNavigationButtonForegroundPointerOver}" />
+																<Setter Target="Text.Opacity"
+																		Value="{StaticResource CupertinoNavigationButtonHoverOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 
 														<VisualState x:Name="Pressed">
 															<VisualState.Setters>
-																<Setter Target="Text.Foreground"
-																		Value="{ThemeResource CalendarViewNavigationButtonForegroundPressed}" />
+																<Setter Target="Text.Opacity"
+																		Value="0.38" />
 															</VisualState.Setters>
 														</VisualState>
 														<VisualState x:Name="Disabled" />
@@ -190,7 +177,9 @@
 																  AutomationProperties.AccessibilityView="Raw" />
 												<TextBlock x:Name="HeaderGlyph"
 														   Grid.Column="2"
-														   Text="&#xE0E5;"
+														   Text="&#xE76C;"
+														   HorizontalAlignment="Center"
+														   VerticalAlignment="Center"
 														   FontFamily="{ThemeResource SymbolThemeFontFamily}"
 														   Foreground="{StaticResource CupertinoCalendarViewAccentBrush}" />
 												<VisualStateManager.VisualStateGroups>
@@ -202,23 +191,23 @@
 																<Setter Target="Text.BorderBrush"
 																		Value="{ThemeResource CalendarViewNavigationButtonBorderBrushPointerOver}" />
 																<Setter Target="Text.Foreground"
-																		Value="{StaticResource MaterialOnPrimaryMediumBrush}" />
-																<Setter Target="DownArrowGlyph.Fill"
-																		Value="{StaticResource MaterialOnPrimaryMediumBrush}" />
+																		Value="{StaticResource CalendarViewNavigationButtonForegroundPointerOver}" />
+																<Setter Target="HeaderGlyph.Opacity"
+																		Value="{StaticResource CupertinoNavigationButtonHoverOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 
 														<VisualState x:Name="Pressed">
 															<VisualState.Setters>
 																<Setter Target="Text.Foreground"
-																		Value="{StaticResource MaterialOnPrimaryLowBrush}" />
-																<Setter Target="DownArrowGlyph.Fill"
-																		Value="{StaticResource MaterialOnPrimaryLowBrush}" />
+																		Value="{StaticResource CalendarViewNavigationButtonForegroundPressed}" />
+																<Setter Target="HeaderGlyph.Opacity"
+																		Value="{StaticResource CupertinoNavigationButtonPressedOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 														<VisualState x:Name="Disabled">
 															<VisualState.Setters>
-																<Setter Target="DownArrowGlyph.Opacity"
+																<Setter Target="HeaderGlyph.Opacity"
 																		Value="0" />
 															</VisualState.Setters>
 														</VisualState>
@@ -704,7 +693,7 @@
 										HorizontalContentAlignment="Left" />
 								<Button x:Name="PreviousButton"
 										Grid.Column="1"
-										Content="&#xE0E4;"
+										Content="&#xE76B;"
 										FontFamily="{ThemeResource SymbolThemeFontFamily}"
 										IsTabStop="True"
 										Padding="1"
@@ -714,7 +703,7 @@
 										Style="{StaticResource NavigationButtonStyle}" />
 								<Button x:Name="NextButton"
 										Grid.Column="2"
-										Content="&#xE0E5;"
+										Content="&#xE76C;"
 										FontFamily="{ThemeResource SymbolThemeFontFamily}"
 										IsTabStop="True"
 										Padding="1"
@@ -792,7 +781,8 @@
 												  Grid.Row="1"
 												  Style="{StaticResource ScrollViewerStyle}"
 												  IsFocusEngagementEnabled="True">
-										<CalendarPanel x:Name="MonthViewPanel" />
+										<CalendarPanel Background="{TemplateBinding Background}"
+													   x:Name="MonthViewPanel" />
 									</ScrollViewer>
 
 								</Grid>
@@ -804,7 +794,8 @@
 									<ScrollViewer.RenderTransform>
 										<ScaleTransform x:Name="YearViewTransform" CenterX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.CenterX}" CenterY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.CenterY}" />
 									</ScrollViewer.RenderTransform>
-									<CalendarPanel x:Name="YearViewPanel" />
+									<CalendarPanel Background="{TemplateBinding Background}"
+												   x:Name="YearViewPanel" />
 								</ScrollViewer>
 								<ScrollViewer x:Name="DecadeViewScrollViewer"
 											  UseLayoutRounding="False"
@@ -814,7 +805,8 @@
 									<ScrollViewer.RenderTransform>
 										<ScaleTransform x:Name="DecadeViewTransform" CenterX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.CenterX}" CenterY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.CenterY}" />
 									</ScrollViewer.RenderTransform>
-									<CalendarPanel x:Name="DecadeViewPanel" />
+									<CalendarPanel Background="{TemplateBinding Background}"
+												   x:Name="DecadeViewPanel" />
 								</ScrollViewer>
 							</Grid>
 

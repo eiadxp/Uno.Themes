@@ -8,40 +8,7 @@
 		<ResourceDictionary Source="../Application/Colors.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
-	<ResourceDictionary.ThemeDictionaries>
-		<ResourceDictionary x:Key="Default">
-			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
-							 Color="{StaticResource MaterialPrimaryColor}" />
-		</ResourceDictionary>
-		<ResourceDictionary x:Key="Dark">
-			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
-							 Color="{StaticResource MaterialPrimaryColor}" />
-		</ResourceDictionary>
-		<ResourceDictionary x:Key="Light">
-			<SolidColorBrush x:Key="SystemControlHighlightAccentBrush"
-							 Color="{StaticResource MaterialPrimaryColor}" />
-		</ResourceDictionary>
-	</ResourceDictionary.ThemeDictionaries>
-
-	<FontFamily x:Key="MaterialFontFamily">Roboto Mono</FontFamily>
-	<x:String x:Key="DownArrowPathData">M0,0L32,0 16,19.745z</x:String>
-	<DataTemplate x:Name="HeaderButtonTemplate">
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="Auto" />
-			</Grid.ColumnDefinitions>
-			<TextBlock Text="{Binding}" />
-			<Path Data="{StaticResource DownArrowPathData}"
-				  Stretch="Uniform"
-				  Height="5"
-				  Width="10"
-				  HorizontalAlignment="Center"
-				  VerticalAlignment="Center"
-				  Grid.Column="1" />
-
-		</Grid>
-	</DataTemplate>
+	<FontFamily x:Key="MaterialFontFamily">Roboto</FontFamily>
 
 	<Style x:Key="MaterialCalendarViewStyle"
 		   TargetType="CalendarView">
