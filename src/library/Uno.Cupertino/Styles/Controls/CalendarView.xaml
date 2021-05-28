@@ -6,6 +6,7 @@
 					xmlns:not_win="http://uno.ui/not_win"
 					xmlns:toolkit="using:Uno.UI.Toolkit"
 					xmlns:wasm="http://uno.ui/wasm"
+					xmlns:uno="using:Uno.UI.Xaml.Controls"
 					mc:Ignorable="ios android wasm not_win">
 
 	<ResourceDictionary.MergedDictionaries>
@@ -16,30 +17,35 @@
 	<StaticResource x:Key="CupertinoCalendarViewAccentBrush"
 					ResourceKey="CupertinoBlueBrush" />
 
+	<SolidColorBrush x:Key="TransparentBrush"
+					 Color="Transparent" />
+
 	<Style x:Key="CupertinoCalendarViewStyle"
 		   TargetType="CalendarView">
 		<Setter Property="FocusBorderBrush"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource CupertinoCalendarViewAccentBrush}" />
 		<Setter Property="SelectedHoverBorderBrush"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource TransparentBrush}" />
 		<Setter Property="SelectedPressedBorderBrush"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource TransparentBrush}" />
 		<Setter Property="SelectedBorderBrush"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource TransparentBrush}" />
 		<Setter Property="HoverBorderBrush"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource CupertinoCalendarViewAccentBrush}" />
 		<Setter Property="PressedBorderBrush"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource CupertinoCalendarViewAccentBrush}" />
 		<Setter Property="CalendarItemBorderBrush"
 				Value="{ThemeResource CalendarViewCalendarItemRevealBorderBrush}" />
+		<!--<Setter Property="CalendarItemCornerRadius"
+				Value="30" />-->
 		<Setter Property="TodayForeground"
-				Value="{ThemeResource CalendarViewTodayForeground}" />
+				Value="{ThemeResource CupertinoCalendarViewAccentBrush}" />
 		<Setter Property="BlackoutForeground"
 				Value="{ThemeResource CalendarViewBlackoutForeground}" />
 		<Setter Property="SelectedForeground"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource CupertinoCalendarViewAccentBrush}" />
 		<Setter Property="PressedForeground"
-				Value="{StaticResource CupertinoCalendarViewAccentBrush}" />
+				Value="{ThemeResource CupertinoCalendarViewAccentBrush}" />
 		<Setter Property="OutOfScopeForeground"
 				Value="{ThemeResource CalendarViewOutOfScopeForeground}" />
 		<Setter Property="CalendarItemForeground"
@@ -63,7 +69,7 @@
 		<Setter Property="FirstOfYearDecadeLabelFontFamily"
 				Value="XamlAutoFontFamily" />
 		<Setter Property="CalendarItemBorderThickness"
-				Value="2" />
+				Value="0" />
 		<Setter Property="BorderThickness"
 				Value="1" />
 		<Setter Property="HorizontalAlignment"
@@ -76,10 +82,10 @@
 				Value="Stretch" />
 		<Setter Property="IsTabStop"
 				Value="False" />
-		<Setter Property="CornerRadius"
-				Value="5" />
 		<Setter Property="UseSystemFocusVisuals"
 				Value="{StaticResource UseSystemFocusVisuals}" />
+		<Setter Property="CornerRadius"
+				Value="{ThemeResource ControlCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="CalendarView">
@@ -123,11 +129,9 @@
 															  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
 															  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
 															  AutomationProperties.AccessibilityView="Raw">
-
 												<VisualStateManager.VisualStateGroups>
 													<VisualStateGroup x:Name="CommonStates">
 														<VisualState x:Name="Normal" />
-
 														<VisualState x:Name="PointerOver">
 															<VisualState.Setters>
 																<Setter Target="Text.BorderBrush"
@@ -136,11 +140,10 @@
 																		Value="{StaticResource CupertinoHoverOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
-
 														<VisualState x:Name="Pressed">
 															<VisualState.Setters>
 																<Setter Target="Text.Opacity"
-																		Value="0.38" />
+																		Value="{StaticResource CupertinoPressedOpacity}" />
 															</VisualState.Setters>
 														</VisualState>
 														<VisualState x:Name="Disabled" />
@@ -234,15 +237,14 @@
 										Value="False" />
 								<Setter Property="Template"
 										Value="{StaticResource ScrollViewerScrollBarlessTemplate}" />
+								<not_win:Setter Property="(uno:ScrollViewer.ShouldFallBackToNativeScrollBars)"
+										Value="False" />
 							</Style>
 						</Border.Resources>
-
 						<VisualStateManager.VisualStateGroups>
 							<VisualStateGroup x:Name="CommonStates">
 								<VisualState x:Name="Normal" />
-
 								<VisualState x:Name="Disabled">
-
 									<Storyboard>
 										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="WeekDay1"
 																	   Storyboard.TargetProperty="Foreground">
@@ -281,12 +283,10 @@
 										</ObjectAnimationUsingKeyFrames>
 									</Storyboard>
 								</VisualState>
-
 							</VisualStateGroup>
 							<VisualStateGroup x:Name="HeaderButtonStates">
 								<VisualState x:Name="ViewChanged" />
 								<VisualState x:Name="ViewChanging">
-
 									<Storyboard>
 										<DoubleAnimation Storyboard.TargetName="HeaderButton"
 														 Storyboard.TargetProperty="Opacity"
@@ -295,12 +295,16 @@
 														 Duration="0:0:0.167" />
 									</Storyboard>
 								</VisualState>
-
 							</VisualStateGroup>
 							<VisualStateGroup x:Name="DisplayModeStates">
 								<VisualState x:Name="Month" />
 								<VisualState x:Name="Year">
-
+									<!-- Begin: Uno only -->
+									<VisualState.Setters>
+										<Setter Target="YearViewScrollViewer.IsHitTestVisible"
+												Value="True" />
+									</VisualState.Setters>
+									<!-- End: Uno only -->
 									<Storyboard>
 										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="MonthViewScrollViewer"
 																	   Storyboard.TargetProperty="IsEnabled">
@@ -320,7 +324,12 @@
 									</Storyboard>
 								</VisualState>
 								<VisualState x:Name="Decade">
-
+									<!-- Begin: Uno only -->
+									<VisualState.Setters>
+										<Setter Target="DecadeViewScrollViewer.IsHitTestVisible"
+												Value="True" />
+									</VisualState.Setters>
+									<!-- End: Uno only -->
 									<Storyboard>
 										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="MonthViewScrollViewer"
 																	   Storyboard.TargetProperty="IsEnabled">
@@ -339,11 +348,9 @@
 										</ObjectAnimationUsingKeyFrames>
 									</Storyboard>
 								</VisualState>
-
 								<VisualStateGroup.Transitions>
 									<VisualTransition From="Month"
 													  To="Year">
-
 										<Storyboard>
 											<ObjectAnimationUsingKeyFrames Storyboard.TargetName="YearViewScrollViewer"
 																		   Storyboard.TargetProperty="Visibility">
@@ -408,7 +415,6 @@
 									</VisualTransition>
 									<VisualTransition From="Year"
 													  To="Month">
-
 										<Storyboard>
 											<ObjectAnimationUsingKeyFrames Storyboard.TargetName="YearViewScrollViewer"
 																		   Storyboard.TargetProperty="IsHitTestVisible">
@@ -494,7 +500,6 @@
 									</VisualTransition>
 									<VisualTransition From="Year"
 													  To="Decade">
-
 										<Storyboard>
 											<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MonthView"
 																		   Storyboard.TargetProperty="Opacity">
@@ -569,7 +574,6 @@
 									</VisualTransition>
 									<VisualTransition From="Decade"
 													  To="Year">
-
 										<Storyboard>
 											<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MonthView"
 																		   Storyboard.TargetProperty="Opacity">
@@ -664,20 +668,16 @@
 										</Storyboard>
 									</VisualTransition>
 								</VisualStateGroup.Transitions>
-
 							</VisualStateGroup>
-
 						</VisualStateManager.VisualStateGroups>
 						<Grid VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
 							  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 							  MinWidth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.MinViewWidth}">
-
 							<Grid.RowDefinitions>
 								<RowDefinition Height="40" />
 								<RowDefinition Height="*" />
 							</Grid.RowDefinitions>
 							<Grid>
-
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="5*" />
 									<ColumnDefinition Width="*" />
@@ -713,11 +713,11 @@
 							</Grid>
 							<Grid x:Name="Views"
 								  Grid.Row="1">
-								<Grid.Clip>
-									<RectangleGeometry Rect="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.ClipRect}" />
-								</Grid.Clip>
+								<!--<Grid.Clip>
+                                    <RectangleGeometry Rect="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.ClipRect}" />
+                                </Grid.Clip>-->
 								<Border x:Name="BackgroundLayer"
-										Background="{TemplateBinding BorderBrush}">
+										Background="{TemplateBinding Background}">
 									<Border.RenderTransform>
 										<ScaleTransform x:Name="BackgroundTransform" CenterX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.CenterX}" CenterY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.CenterY}" />
 									</Border.RenderTransform>
@@ -783,7 +783,6 @@
 										<CalendarPanel Background="{TemplateBinding Background}"
 													   x:Name="MonthViewPanel" />
 									</ScrollViewer>
-
 								</Grid>
 								<ScrollViewer x:Name="YearViewScrollViewer"
 											  UseLayoutRounding="False"
@@ -808,10 +807,8 @@
 												   x:Name="DecadeViewPanel" />
 								</ScrollViewer>
 							</Grid>
-
 						</Grid>
 					</Border>
-
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>

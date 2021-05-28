@@ -9,16 +9,27 @@
 	  xmlns:smtx="using:ShowMeTheXAML"
 	  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+	<Page.Resources>
+		<SolidColorBrush x:Key="CupertinoBlueBackground"
+						 Color="{ThemeResource CupertinoBlueColor}"
+						 Opacity="0.27" />
+	</Page.Resources>
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 		<sample:SamplePageLayout>
 			<sample:SamplePageLayout.MaterialTemplate>
 				<DataTemplate>
 					<StackPanel>
 						<smtx:XamlDisplay UniqueKey="Material_CalendarView">
-							<CalendarView SelectionMode="Multiple"  Style="{StaticResource MaterialCalendarViewStyle}" />
+							<CalendarView SelectionMode="Multiple"
+										  DayItemCornerRadius="20"
+										  CalendarItemCornerRadius="40"
+										  SelectedBackground="{StaticResource MaterialPrimaryBrush}"
+										  TodaySelectedBackground="{StaticResource MaterialPrimaryBrush}"
+										  Style="{StaticResource MaterialCalendarViewStyle}" />
 						</smtx:XamlDisplay>
 						<smtx:XamlDisplay UniqueKey="Material_CalendarDatePicker">
-							<CalendarDatePicker Header="Select" Style="{StaticResource MaterialCalendarDatePickerStyle}" />
+							<CalendarDatePicker Header="Select"
+												Style="{StaticResource MaterialCalendarDatePickerStyle}" />
 						</smtx:XamlDisplay>
 					</StackPanel>
 				</DataTemplate>
@@ -27,10 +38,16 @@
 				<DataTemplate>
 					<StackPanel>
 						<smtx:XamlDisplay UniqueKey="Cupertino_CalendarView">
-							<CalendarView SelectionMode="Multiple"  Style="{StaticResource CupertinoCalendarViewStyle}" />
+							<CalendarView SelectionMode="Multiple"
+										  DayItemCornerRadius="20"
+										  CalendarItemCornerRadius="40"
+										  SelectedBackground="{StaticResource CupertinoBlueBackground}"
+										  TodaySelectedBackground="{StaticResource CupertinoBlueBackground}"
+										  Style="{StaticResource CupertinoCalendarViewStyle}" />
 						</smtx:XamlDisplay>
 						<smtx:XamlDisplay UniqueKey="Cupertino_CalendarDatePicker">
-							<CalendarDatePicker Header="Select" Style="{StaticResource CupertinoCalendarDatePickerStyle}" />
+							<CalendarDatePicker Header="Select"
+												Style="{StaticResource CupertinoCalendarDatePickerStyle}" />
 						</smtx:XamlDisplay>
 					</StackPanel>
 				</DataTemplate>
