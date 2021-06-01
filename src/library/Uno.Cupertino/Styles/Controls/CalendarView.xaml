@@ -62,10 +62,16 @@
 				Value="{ThemeResource CalendarViewBorderBrush}" />
 		<Setter Property="DayItemFontFamily"
 				Value="XamlAutoFontFamily" />
+		<Setter Property="DayItemFontSize"
+				Value="14" />
 		<Setter Property="FirstOfMonthLabelFontFamily"
 				Value="XamlAutoFontFamily" />
+		<Setter Property="FirstOfMonthLabelFontSize"
+				Value="0" />
 		<Setter Property="MonthYearItemFontFamily"
 				Value="XamlAutoFontFamily" />
+		<Setter Property="MonthYearItemFontSize"
+				Value="14" />
 		<Setter Property="FirstOfYearDecadeLabelFontFamily"
 				Value="XamlAutoFontFamily" />
 		<Setter Property="CalendarItemBorderThickness"

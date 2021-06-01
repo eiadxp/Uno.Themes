@@ -56,10 +56,16 @@
 				Value="{ThemeResource CalendarViewBorderBrush}" />
 		<Setter Property="DayItemFontFamily"
 				Value="{StaticResource MaterialFontFamily}" />
+		<Setter Property="DayItemFontSize"
+				Value="14" />
 		<Setter Property="FirstOfMonthLabelFontFamily"
 				Value="{StaticResource MaterialFontFamily}" />
+		<Setter Property="FirstOfMonthLabelFontSize"
+				Value="0" />
 		<Setter Property="MonthYearItemFontFamily"
 				Value="{StaticResource MaterialFontFamily}" />
+		<Setter Property="MonthYearItemFontSize"
+				Value="14" />
 		<Setter Property="FirstOfYearDecadeLabelFontFamily"
 				Value="{StaticResource MaterialFontFamily}" />
 		<Setter Property="CalendarItemBorderThickness"
@@ -105,7 +111,7 @@
 								<Setter Property="UseSystemFocusVisuals"
 										Value="{StaticResource UseSystemFocusVisuals}" />
 								<Setter Property="FontSize"
-										Value="20" />
+										Value="14" />
 								<Setter Property="Background"
 										Value="{ThemeResource CalendarViewNavigationButtonBackground}" />
 								<Setter Property="BackgroundSizing"
@@ -737,39 +743,32 @@
 											<ColumnDefinition Width="*" />
 											<ColumnDefinition Width="*" />
 										</Grid.ColumnDefinitions>
-										<TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay1}"
+										<TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay1}"
 												   x:Name="WeekDay1"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 										<TextBlock Grid.Column="1"
-												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay2}"
+												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay2}"
 												   x:Name="WeekDay2"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 										<TextBlock Grid.Column="2"
-												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay3}"
+												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay3}"
 												   x:Name="WeekDay3"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 										<TextBlock Grid.Column="3"
-												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay4}"
+												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay4}"
 												   x:Name="WeekDay4"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 										<TextBlock Grid.Column="4"
-												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay5}"
+												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay5}"
 												   x:Name="WeekDay5"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 										<TextBlock Grid.Column="5"
-												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay6}"
+												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay6}"
 												   x:Name="WeekDay6"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 										<TextBlock Grid.Column="6"
-												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.WeekDay7}"
+												   Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource FirstCharacterConverter}, Path=TemplateSettings.WeekDay7}"
 												   x:Name="WeekDay7"
-												   Foreground="{TemplateBinding CalendarItemForeground}"
 												   Style="{StaticResource WeekDayNameStyle}" />
 									</Grid>
 									<ScrollViewer x:Name="MonthViewScrollViewer"
