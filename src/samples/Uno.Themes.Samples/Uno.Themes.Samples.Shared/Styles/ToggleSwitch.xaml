@@ -5,18 +5,16 @@
                     xmlns:wasm="http://uno.ui/wasm"
                     mc:Ignorable="d wasm">
 
-	<!--  Workaround for https://github.com/unoplatform/uno/issues/5372  -->
-	<wasm:Style x:Key="MaterialToggleSwitchStyle"
-	            BasedOn="{StaticResource DefaultMaterialToggleSwitchStyle}"
-	            TargetType="ToggleSwitch" />
+    <!--  Workaround for https://github.com/unoplatform/uno/issues/5372  -->
+    <wasm:Style x:Key="MaterialToggleSwitchStyle"
+                BasedOn="{StaticResource DefaultMaterialToggleSwitchStyle}"
+                TargetType="ToggleSwitch" />
 
-	<wasm:Style x:Key="MaterialSecondaryToggleSwitchStyle"
-	            BasedOn="{StaticResource DefaultMaterialToggleSwitchStyle}"
-	            TargetType="ToggleSwitch">
+    <wasm:Style x:Key="MaterialSecondaryToggleSwitchStyle"
+                BasedOn="{StaticResource DefaultMaterialToggleSwitchStyle}"
+                TargetType="ToggleSwitch">
 
-		<Setter Property="Foreground"
-		        Value="{StaticResource MaterialSecondaryVariantDarkBrush}" />
-		<Setter Property="Background"
-		        Value="{StaticResource MaterialSecondaryVariantLightBrush}" />
-	</wasm:Style>
+        <Setter Property="Foreground" Value="{StaticResource MaterialSecondaryVariantDarkBrush}" />
+        <Setter Property="Background" Value="{StaticResource MaterialSecondaryVariantLightBrush}" />
+    </wasm:Style>
 </ResourceDictionary>

@@ -1,14 +1,13 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:converters="using:Uno.Themes.Samples.Converters">
-	<converters:FromStringToValueConverter x:Key="IsNullOrEmptyToCollapsed"
-										   Check="IsNullOrEmpty"
-										   TrueValue="Collapsed"
-										   FalseValue="Visible" />
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Uno.Themes.Samples.Converters">
+    <converters:FromStringToValueConverter x:Key="IsNullOrEmptyToCollapsed"
+                                           Check="IsNullOrEmpty"
+                                           FalseValue="Visible"
+                                           TrueValue="Collapsed" />
 
-	<converters:EnumDescriptionConverter x:Name="EnumToDescription" />
-	<converters:FromBoolToValueConverter x:Key="TrueToVisible"
-										 TrueValue="Visible"
-										 NullOrFalseValue="Collapsed" />
+    <converters:EnumDescriptionConverter x:Name="EnumToDescription" />
+    <converters:FromBoolToValueConverter x:Key="TrueToVisible"
+                                         NullOrFalseValue="Collapsed"
+                                         TrueValue="Visible" />
 </ResourceDictionary>
