@@ -18,6 +18,9 @@ namespace Uno.Material
 		/// <remarks>See https://github.com/unoplatform/Uno.Material for the full documentation</remarks>
 		public static void Init(Application app, ResourceDictionary colorPaletteOverride)
 		{
+			// This method is not supported in this branch
+			throw new NotSupportedException();
+
 			// NOTE: The order below is very important!
 
 			// Set a default palette to make sure all colors exist and avoid possible crashes.

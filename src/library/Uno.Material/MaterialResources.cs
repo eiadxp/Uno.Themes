@@ -99,19 +99,23 @@ namespace Uno.Material
 			var dictionary = new ResourceDictionary() { Source = new Uri(source) };
 			if (ColorPaletteSource != null)
 			{
-				if (source == "ms-appx:///Uno.Material/Styles/Application/Colors.xaml")
-				{
-					dictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = ColorPaletteSource });
-				}
-				else
-				{
-					foreach (var item in dictionary.MergedDictionaries.Where(d => d.Source != null && d.Source.AbsoluteUri.EndsWith("/Application/Colors.xaml")))
-					{
-						item.MergedDictionaries.Add(new ResourceDictionary() { Source = ColorPaletteSource });
-					}
-				}
+				AddColorPalette(dictionary);
 			}
 			mergedDictionary.MergedDictionaries.Add(dictionary);
+		}
+		void AddColorPalette(ResourceDictionary dictionary)
+		{
+			if (dictionary.Source?.AbsolutePath == "ms-appx:///Uno.Material/Styles/Application/Colors.xaml")
+			{
+				dictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = ColorPaletteSource });
+			}
+			else
+			{
+				foreach (var item in dictionary.MergedDictionaries)
+				{
+					AddColorPalette(item);
+				}
+			}
 		}
 	}
 }
